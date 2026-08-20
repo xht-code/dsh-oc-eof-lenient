@@ -2,6 +2,20 @@
 
 对目标 LLM provider 的模型流做 OpenCode 风格的 EOF 宽容处理（DSH `llm/stream` 中间件）。
 
+## 安装 / 更新
+
+安装插件到指定的 DSH profile：
+
+```bash
+dsh plugin --profile web add dsh-oc-eof-lenient
+```
+
+更新插件到最新版本：
+
+```bash
+dsh plugin --profile web update dsh-oc-eof-lenient@latest
+```
+
 ## 背景
 
 某些 OpenAI 兼容网关在已产出一整轮内容（文本或工具调用）后会直接关闭 SSE，不发送标准的
