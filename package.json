@@ -1,0 +1,62 @@
+{
+  "name": "dsh-oc-eof-lenient",
+  "version": "0.0.1",
+  "description": "对目标 LLM provider 的模型流做 OpenCode 风格的 EOF 宽容处理：已产出完整内容但以 `TRANSPORT: Stream ended without finish_reason` 结尾的流，按 OpenCode/AI SDK 的语义改写成正常完成（DSH llm/stream 中间件插件）",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "LICENSE",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "opencode",
+    "sse",
+    "finish_reason",
+    "llm",
+    "middleware",
+    "eof"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xht-code/dsh-oc-eof-lenient.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xht-code/dsh-oc-eof-lenient/issues"
+  },
+  "homepage": "https://github.com/xht-code/dsh-oc-eof-lenient#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0-rc <5",
+    "@deepseek-ai/dsh-llm": ">=0.0.1-rc <2",
+    "@deepseek-ai/dsh-settings": ">=0.0.1-rc <2",
+    "@deepseek-ai/schemastery": "^3.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "tsdown": "0.22.2",
+    "typescript": "^5.9.0"
+  },
+  "scripts": {
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "prepublishOnly": "npm run build",
+    "prepack": "npm run build"
+  }
+}
